@@ -94,13 +94,12 @@ class User {
 
 ### 跨 Model 操作的处理
 
-#### 谨慎考虑归属
-当需要跨多个 Model 的操作时，仔细思考：
+**谨慎考虑归属**：当需要跨多个 Model 的操作时，仔细思考：
 1. 这个操作属于哪个 Model 的概念？
 2. 是否需要创建新的概念（新的 Model）？
 3. 是否需要在 Controller 中协调？
 
-#### 创建新概念的时机
+**创建新概念的时机**：
 - **复杂业务逻辑**: 跨多个 Model 的复杂业务逻辑
 - **独立的业务概念**: 操作本身代表一个业务概念
 - **重复出现**: 相同的跨 Model 操作在多处出现
@@ -276,7 +275,7 @@ class UserController {
 
 ### 不同框架的数据访问方式
 
-#### Active Record 模式（Rails、Django）
+**Active Record 模式（Rails、Django）**：
 - **Model 直接包含数据访问**: Model 类直接提供 save、find、delete 等方法
 - **框架内置 ORM**: 框架提供数据库抽象层
 - **约定优于配置**: 遵循框架的命名和结构约定
@@ -301,7 +300,7 @@ class User extends ActiveRecord {
 }
 ```
 
-#### Repository 模式（自定义架构）
+**Repository 模式（自定义架构）**：
 - **分离关注点**: Model 专注业务逻辑，Repository 负责数据访问
 - **接口抽象**: 定义抽象的数据访问接口
 - **依赖注入**: Model 通过依赖注入获取数据访问能力
@@ -360,14 +359,14 @@ View → Controller   ❌
 
 ### 数据流向
 
-#### Active Record 模式流向
+**Active Record 模式流向**：
 1. **用户请求** → Controller
 2. **Controller** → Model 调用业务方法
 3. **Model** → Framework ORM 进行数据操作
 4. **Controller** → View 渲染结果
 5. **View** → 用户响应
 
-#### Repository 模式流向
+**Repository 模式流向**：
 1. **用户请求** → Controller
 2. **Controller** → Model 调用业务方法
 3. **Model** → Repository 获取/保存数据（委托）
@@ -379,7 +378,7 @@ View → Controller   ❌
 
 ### 跨 Model 操作的归属问题
 
-#### 问题：订单状态变更需要通知用户和更新库存
+**问题：订单状态变更需要通知用户和更新库存**
 ```javascript
 // ❌ 错误：在 Controller 中写业务逻辑
 class OrderController {
@@ -442,7 +441,7 @@ class InventoryManager {
 
 ### Model 过度分割问题
 
-#### 问题：将用户信息分割成多个小 Model
+**问题：将用户信息分割成多个小 Model**
 ```javascript
 // ❌ 错误：过度分割破坏概念完整性
 class UserBasicInfo {
