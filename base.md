@@ -195,6 +195,20 @@ project/
 - **分支策略**: 使用合适的分支策略（如 Git Flow）
 - **代码审查**: 所有代码都应经过同行审查
 
+### Git 提交规范
+- **禁止使用命令替换**: 在 git commit 命令中不要使用 `$()` 或反引号进行命令替换
+- **直接书写消息**: 使用 `git commit -m "消息内容"` 的简单形式
+- **多行消息**: 如需多行消息，使用 `git commit` 进入编辑器或使用 `-m` 多次
+```bash
+# 正确方式
+git commit -m "添加新功能"
+git commit -m "标题" -m "详细描述"
+
+# 避免使用
+git commit -m "$(cat <<'EOF'...)"
+git commit -m "`generate_message`"
+```
+
 ## 持续改进
 
 ### 代码重构
