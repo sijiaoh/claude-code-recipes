@@ -2,9 +2,9 @@
 
 此文件为 Claude Code (claude.ai/code) 在此仓库中工作时提供指导。
 
-## 编程规范
+## 编程最佳实践
 
-**重要**: Claude Code 在处理此项目时必须严格遵循 `base.md` 中定义的所有编程规则和最佳实践。
+**重要**: Claude Code 在处理此项目时必须严格遵循 `base.md` 中定义的所有编程最佳实践。
 
 ## 工作要求
 
@@ -48,11 +48,11 @@
 ```markdown
 # CLAUDE.md
 
-## 编程规范
+## 编程最佳实践
 请严格遵循以下规则文件中的所有指导：
 - base.md - 通用编程最佳实践
-- python.md - Python 语言规范
-- fastapi.md - FastAPI 框架指导
+- python.md - Python 语言最佳实践
+- fastapi.md - FastAPI 框架最佳实践
 ```
 
 ### 4. 自定义配置
