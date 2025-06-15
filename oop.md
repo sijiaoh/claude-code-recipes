@@ -242,6 +242,46 @@ class OrderItem:
         return self.price * self.quantity
 ```
 
+### 4. 单方法类反模式
+避免仅为单个方法而创建的类，特别是 FooLogic.call() 模式。
+
+```python
+# 避免 - 单方法类反模式
+class UserValidationLogic:
+    def call(self, user):
+        return user.email and '@' in user.email
+
+class OrderProcessingLogic:
+    def call(self, order):
+        # 复杂的订单处理逻辑
+        pass
+
+# 推荐 - 逻辑归位到相关概念
+class User:
+    def is_valid(self):
+        """用户验证 - 用户概念的内在职责"""
+        return self.email and '@' in self.email
+
+class Order:
+    def process(self):
+        """订单处理 - 订单概念的内在行为"""
+        # 订单处理逻辑
+        pass
+
+# 例外：真正的概念恰好只有一个方法（这是可以接受的）
+class PaymentGateway:
+    """支付网关 - 独立的业务概念"""
+    def __init__(self, api_key, endpoint):
+        self.api_key = api_key
+        self.endpoint = endpoint
+    
+    def process_payment(self, amount, payment_info):
+        """支付处理 - 支付网关概念的核心职责"""
+        # 当前阶段只有一个方法，但这是一个完整的概念
+        # 未来可能会添加 refund(), get_transaction_status() 等方法
+        pass
+```
+
 ## 接口设计
 
 ### 接口隔离原则
@@ -298,6 +338,6 @@ class UserFactory:
 3. **代码导航清晰** - 从概念类能直接找到实现类
 4. **合理的类大小** - 复杂概念的大类是自然和合理的
 5. **组合优于继承** - 优先使用组合构建复杂行为
-6. **避免反模式** - 贫血模型、过度抽象、特性嫉妒
+6. **避免反模式** - 贫血模型、过度抽象、特性嫉妒、单方法类
 
 **核心原则**: 好的面向对象设计应该自然、直观，能够清晰反映业务逻辑和问题域的概念结构。类应该是完整概念的载体，而不是功能的简单分割。
