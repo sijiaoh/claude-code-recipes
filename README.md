@@ -11,6 +11,7 @@
 ├── python.md                  # Python 语言特定规范
 ├── typescript.md              # TypeScript 语言特定规范
 ├── mvc.md                     # MVC 架构最佳实践
+├── phaser.md                  # Phaser.js 游戏开发最佳实践
 └── .claude/
     └── settings.local.json    # Claude Code 权限配置
 ```
@@ -22,6 +23,7 @@
 - **python.md** - Python 语言特定的编程规范和最佳实践
 - **typescript.md** - TypeScript 语言特定的编程规范和最佳实践
 - **mvc.md** - MVC 架构模式的最佳实践和设计原则
+- **phaser.md** - Phaser.js 游戏开发框架的最佳实践和设计模式
 
 ## 使用方法
 
@@ -51,7 +53,7 @@ git submodule update --remote .claude-recipes
 
 ## 示例用法
 
-### TypeScript + MVC 项目
+### Phaser.js 游戏项目
 ```markdown
 # 项目 CLAUDE.md
 
@@ -60,7 +62,7 @@ git submodule update --remote .claude-recipes
 - .claude-recipes/base.md - 通用编程最佳实践
 - .claude-recipes/oop.md - 面向对象编程最佳实践
 - .claude-recipes/typescript.md - TypeScript 语言最佳实践
-- .claude-recipes/mvc.md - MVC 架构指导
+- .claude-recipes/phaser.md - Phaser.js 游戏开发最佳实践
 ```
 
 ### 简单项目（仅基础规范）
