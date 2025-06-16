@@ -26,7 +26,7 @@
 ### 1. 添加为 Submodule
 ```bash
 # 在项目根目录添加 submodule
-git submodule add https://github.com/your-username/claude-code-recipes .claude-recipes
+git submodule add https://github.com/sijiaoh/claude-code-recipes .claude-recipes
 ```
 
 ### 2. 在项目 CLAUDE.md 中引用
